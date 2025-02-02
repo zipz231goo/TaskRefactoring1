@@ -43,6 +43,13 @@ function refreshResultBlock(){
   RESULTBLOCK.innerHTML = '';
 }
 
+// Створюємо універсальну функцію
+function handleTask(parentEl, callback) {
+  let inputText = parentEl.querySelector('input[type="text"], input[type="number"], textarea[type="text"]').value;
+  refreshResultBlock();
+  callback(inputText);
+}
+
 function taskFunctionsOne(parentEl){
   // Записуємо в параметри текст та розмір шрифта, який потрібно згенерувати
   let inputText = parentEl.querySelector('textarea[type="text"]').value;
@@ -52,51 +59,35 @@ function taskFunctionsOne(parentEl){
 }
 
 function taskFunctionsTwo(parentEl){
-  let inputText = parentEl.querySelector('input[type="text"]').value;
-  refreshResultBlock();
-  createTable(inputText.split(' '));
+  handleTask(parentEl, text => createTable(text.split(' ')));
 }
 
 function taskFunctionsThree(parentEl){
-  let n = parentEl.querySelector('input[type="number"]').value;
-  refreshResultBlock();
-  createHeaders(n);
+  handleTask(parentEl, createHeaders);
 }
 
 function taskFunctionsFour(parentEl){
-  let inputText = parentEl.querySelector('input[type="text"]').value;
-  refreshResultBlock();
-  workWithParameters(inputText);
+  handleTask(parentEl, workWithParameters);
 }
 
 function taskDateTwo(parentEl){
-  let inputText = parentEl.querySelector('input[type="text"]').value;
-  refreshResultBlock();
-  checkDate(inputText);
+  handleTask(parentEl, checkDate);
 }
 
 function taskRegExpOne(parentEl){
-  let inputText = parentEl.querySelector('textarea[type="text"]').value;
-  refreshResultBlock();
-  findDates(inputText);
+  handleTask(parentEl, findDates);
 }
 
 function taskRegExpTwo(parentEl){
-  let inputText = parentEl.querySelector('input[type="text"]').value;
-  refreshResultBlock();
-  toCamelCase(inputText);
+  handleTask(parentEl, toCamelCase)
 }
 
 function taskRegExpThree(parentEl){
-  let inputText = parentEl.querySelector('input[type="text"]').value;
-  refreshResultBlock();
-  toSnakeCase(inputText);
+  handleTask(parentEl, toSnakeCase)
 }
 
 function taskRegExpFour(parentEl){
-  let inputText = parentEl.querySelector('input[type="text"]').value;
-  refreshResultBlock();
-  findHexColor(inputText);
+  handleTask(parentEl, findHexColor)
 }
 
 /** TASK 1, 1-4 **/
