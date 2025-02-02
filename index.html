@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Lab #3</title>
+</head>
+<body>
+  <h1>Lab #3 JavaScript</h1>
+
+  <p>Результат:</p>
+  <button onclick="refreshResultBlock()">Refresh result block</button> <br><br>
+  <div id="resultBlock"></div>
+  <hr>
+
+  <div>
+    <p><b>Завдання 1: Функції (4 завдання)</b></p>
+
+    <p>
+      1. Створити функцію, яка виводить текст із різним розміром шрифту.
+      Функція має два аргументи: текстовий рядок та розмір шрифту.
+      Використовуйте style-властивість font-size
+    </p>
+    <div class="task" id="taskFunctionsOne">
+      <textarea type="text" value="text" style="width: 320px; height: 50px;">Text for Example</textarea> <br>
+      <input type="number" value="14" name="font-size">
+      <button >Вивести текст</button>
+    </div>
+    <hr>
+    <p>
+      2. Створити функцію, яка приймає текстові рядки, а виводить html-код таблиці,
+      де кожен із вихідних рядків розташований в окремій комірці.
+      Використовуйте теги для оформлення таблиць: table, tr, td. <br>
+      Вхідні дані:  createTable(‘i’, ‘like’, ‘learn’, ‘JavaScript’)
+    </p>
+    <div class="task" id="taskFunctionsTwo">
+      <input type="text" value="I like learn JavaScript"/>
+      <button>Створити таблицю</button>
+    </div>
+    <hr>
+    <p>
+      3. Створіть функцію createHeaders(N),
+        яка створить на сторінці N заголовків другого рівня (< h2 >)
+        з написами Header1, Header2 … HeaderN.
+    </p>
+    <div class="task" id="taskFunctionsThre">
+      <input type="number" value="0"/>
+      <button>Створити заголовки зі значенням N</button>
+    </div>
+    <hr>
+    <p>
+      4. Створіть функцію, яка приймає скільки завгодно параметрів (числа, слова) і виконує з ними наступне:<br>
+      - Знаходить максимальне число з переданих чисел або їх суму <br>
+      - Створює речення з переданих слів
+    </p>
+    <div class="task" id="taskFunctionsFour">
+      <label>
+        <span>Введіть параметри розділені пробілом</span>
+        <input type="text" value="Example 1 2 4 params"/>
+      </label>
+      <button>Виконати</button>
+    </div>
+    <hr>
+
+    <p><b>Завдання 2: Дата та час (2 завдання)</b></p>
+
+    <p>
+      Написати функцію, яка виводить поточну дату у вигляді: <br>
+      Дата: 12 березня 2017 року <br>
+      День тижня: неділя <br>
+      Час: 15:08 <br>
+      Реалізувати запуск цієї функції при натисканні на відповідну кнопку.
+    </p>
+    <table>
+      <tr>
+        <th>
+          Завдання
+        </th>
+        <th></th>
+        <th>
+          Результат
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <b>Завдання №1</b> Виведеня поточної дати та часу
+        </td>
+        <td>
+          <button onclick="displayCurrentDateTime()">Виконати</button>
+        </td>
+        <td id="currentDateTime"></td>
+      </tr>
+    </table>
+    <hr>
+    <p>
+      2. Користувач вводить дату у форматі (дд.мм.рррр або дд/мм/рррр або дд-мм-рррр). Опублікувати цю дату у наступному вигляді: <br>
+      Якщо дата сьогоднішня - вивести Сьогодні <br>
+      Якщо вчорашня - Вчора, <br>
+      Якщо пройшло 2-6 днів, вивести: <br>
+      2 дні тому, 3 дні тому,... 6 днів тому <br>
+      Якщо пройшло 7 днів -  Тиждень тому <br>
+      Якщо пройшов рік - Рік тому <br>
+      В інших випадках - вивести дату у форматі РРРР.ММ.ДД
+    </p>
+    <div class="task" id="taskDateTwo">
+      <label>
+        <span>Введіть в форматі дд.мм.рррр або дд/мм/рррр або дд-мм-рррр</span>
+        <br><br>
+        <input type="text" value="21/01/2024"/>
+      </label>
+      <button>Виконати</button>
+    </div>
+    <hr>
+
+    <p><b>Завдання 2: Дата та час (2 завдання)</b></p>
+
+    <p>
+      1. Напишіть функцію findDates (text), яка знаходить у тексті всі дати, записані у форматі РРРР-ММ-ДД.
+      Дати мають бути валідними.
+      Використати регулярні вирази.
+    </p>
+    <div class="task" id="taskRegExpOne">
+      <textarea type="text" value="text" style="width: 320px; height: 50px;">Text for Example with date 1991-08-24 and 1996-06-28</textarea> <br>
+      <button >Вивести Дати</button>
+    </div>
+    <hr>
+
+    <p>
+      2. Напишіть функцію toCamelCase(), яка приймає значення імені змінної в стилі “snake_case”,
+      та повертає це ж ім’я в стилі «lowerCamelCase» Використати регулярні вирази.
+    </p>
+    <div class="task" id="taskRegExpTwo">
+      <input type="text" value="my_variable new_brand_product"/>
+      <button>Виконати</button>
+    </div>
+    <hr>
+
+    <p>
+      3. Напишіть функцію toSnakeCase(), яка працює як обернена до функції toCamelCase().
+      Використати регулярні вирази.
+    </p>
+    <div class="task" id="taskRegExpThree">
+      <input type="text" value="myVariable newBrandProduct"/>
+      <button>Виконати</button>
+    </div>
+    <hr>
+    <p>
+      4. Напишіть функцію findHexColor (text), яка знаходить у заданому тексті колір у форматі #ABC або # ABCDEF.
+      Якщо не знайдено, повернути null.
+      Використати регулярні вирази.
+    </p>
+    <div class="task" id="taskRegExpFour">
+      <input type="text" value="text for example with #ABC #eee and #ABCDEF"/>
+      <button>Виконати</button>
+    </div>
+    <hr>
+
+  </div>
+
+  <script src="lab3.js"></script>
+</body>
+</html>
