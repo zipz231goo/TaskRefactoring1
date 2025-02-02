@@ -3,38 +3,24 @@ let RESULTBLOCK = document.getElementById('resultBlock');
 
 // Знаходимо всі кнопки і згідно з id починаємо виконання функції, передавая параметри, згідно з завдання
 let btns = document.querySelectorAll('button');
-btns.forEach(btn => {
+const taskElements = document.querySelectorAll(".task");
+
+let taskFunctions = {};
+taskElements.forEach(element => {
+  if (element.id) {
+    taskFunctions[element.id] = window[element.id] || null;
+  }
+});
+
+btns.forEach((btn) => {
   btn.addEventListener('click', event => {
     let parentEl = event.target.parentElement;
-      switch(parentEl.id){
-        case 'taskFunctionsOne': 
-        taskFunctionsOne(parentEl);
-        break;
-        case 'taskFunctionsTwo': 
-        taskFunctionsTwo(parentEl);
-        break;
-        case 'taskFunctionsThre': 
-        taskFunctionsThree(parentEl);
-        break;
-        case 'taskFunctionsFour': 
-        taskFunctionsFour(parentEl);
-        break;
-        case 'taskDateTwo': 
-        taskDateTwo(parentEl);
-        break;
-        case 'taskRegExpOne': 
-        taskRegExpOne(parentEl);
-        break;
-        case 'taskRegExpTwo': 
-        taskRegExpTwo(parentEl);
-        break;
-        case 'taskRegExpThree': 
-        taskRegExpThree(parentEl);
-        break;
-        case 'taskRegExpFour': 
-        taskRegExpFour(parentEl);
-        break;
-      }
+    let fnName = parentEl.id;
+
+    // Перевіряємо, чи існує така функція в об'єкті
+    if (taskFunctions[fnName]) {
+      taskFunctions[fnName](parentEl);
+    }
   });
 });
 
