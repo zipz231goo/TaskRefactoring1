@@ -112,38 +112,41 @@ function createHeaders(n){
   }
 }
 
-function workWithParameters(text){
-  let arr = text.split(' ');
+function parseText(text) {
   let numbers = [];
   let words = [];
-  let sum = 0;
 
-  // Записуємо число і слова з рядка в різні масиви
-  arr.forEach((element) => {
-    if (Number(element)) {
-      numbers.push(parseFloat(element));
+  text.split(' ').forEach(element => {
+    let num = parseFloat(element);
+    if (!isNaN(num)) {
+      numbers.push(num);
     } else {
       words.push(element);
     }
   });
 
-  // Знаходимо суму
-  numbers.forEach((element) => {
-    sum+=element;
-  })
-
-  // Знаходимо максимальне число
-  let maxNum = Math.max(...numbers);
-
-  let str = words.join(' ');
-
-  RESULTBLOCK.innerHTML = `
-  1) Максимальне число з переданих: ${maxNum} <br>
-  2) Сума переданих чисел ${numbers}:  ${sum} <br>
-  3) Речення з переданих слів: ${str}`;
+  return { numbers, words };
 }
 
+function calculateStats(numbers) {
+  return {
+    sum: numbers.reduce((acc, num) => acc + num, 0),
+    max: numbers.length ? Math.max(...numbers) : null
+  };
+}
 
+function updateResultBlock(numbers, words, stats) {
+  RESULTBLOCK.innerHTML = `
+    1) Максимальне число: ${stats.max !== null ? stats.max : "Немає чисел"} <br>
+    2) Сума чисел (${numbers}): ${stats.sum} <br>
+    3) Речення: ${words.join(' ')}`;
+}
+
+function workWithParameters(text) {
+  let { numbers, words } = parseText(text);
+  let stats = calculateStats(numbers);
+  updateResultBlock(numbers, words, stats);
+}
 
 /** TASK 2, 1-2 **/
 
