@@ -5,11 +5,8 @@ let RESULTBLOCK = document.getElementById('resultBlock');
 let btns = document.querySelectorAll('button');
 const taskElements = document.querySelectorAll(".task");
 
-let taskFunctions = {};
-taskElements.forEach(element => {
-  if (element.id) {
-    taskFunctions[element.id] = window[element.id] || null;
-  }
+
+
 });
 
 btns.forEach((btn) => {
