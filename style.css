@@ -1,7 +1,15 @@
-table, td, th{
+/* Стилі для таблиці */
+.data-table {
   border: 1px solid black;
   border-collapse: collapse;
 }
-td, th{
+
+/* Стилі для комірок таблиці */
+.table-cell, .table-header {
   padding: 5px;
+}
+
+/* Стилі для заголовків таблиці */
+.table-header {
+  font-weight: bold;
 }
